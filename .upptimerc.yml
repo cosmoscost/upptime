@@ -1,36 +1,108 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# CosmosCost Monitoring Configuration
+owner: jandro
+repo: upptime
+
+# Monitoring schedule
+workflowSchedule:
+  uptime: "*/5 * * * *"
+  responseTime: "0,30 * * * *"
+  graphs: "0 0 * * *"
+  staticSite: "0 * * * *"
+
+# Delay between checks to avoid rate limiting
+delay: 1000
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  # Core Application
+  - name: CosmosCost Homepage
+    url: https://cosmoscost.com
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 3000
+
+  - name: Public Health Check
+    url: https://cosmoscost.com/api/health/public
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 2000
+
+  - name: Dashboard
+    url: https://cosmoscost.com/dashboard
+    expectedStatusCodes:
+      - 200
+      - 307
+    maxResponseTime: 2000
+
+  - name: Authentication
+    url: https://cosmoscost.com/auth/signin
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 2000
+
+  - name: Admin Console
+    url: https://cosmoscost.com/admin
+    expectedStatusCodes:
+      - 200
+      - 307
+    maxResponseTime: 2000
+
+  # Marketing & Documentation
+  - name: Documentation
+    url: https://cosmoscost.com/docs
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 1500
+
+  - name: Pricing Page
+    url: https://cosmoscost.com/pricing
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 1500
+
+  # External Dependencies
+  - name: Supabase Service
+    url: https://suuiylxptffjqhhtpwwc.supabase.co/rest/v1/
+    expectedStatusCodes:
+      - 200
+      - 401
+    maxResponseTime: 2000
+
+  - name: Stripe API Status
+    url: https://status.stripe.com
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 2000
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.cosmoscost.com
+  logoUrl: https://cosmoscost.com/logo.svg
+  name: CosmosCost Status
+  theme: light
+  introTitle: "**CosmosCost** Cloud Cost Management Platform"
+  introMessage: Monitor the real-time status of CosmosCost services and infrastructure.
   navbar:
     - title: Status
       href: /
+    - title: CosmosCost
+      href: https://cosmoscost.com
+    - title: Documentation
+      href: https://cosmoscost.com/docs
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
+  metaTags:
+    - name: "og:title"
+      content: "CosmosCost Status"
+    - name: "og:description"
+      content: "Real-time status and uptime monitoring for CosmosCost"
+    - name: "robots"
+      content: "noindex"
+  customHeadHtml: |
+    <style>
+      :root {
+        --body-background-color: #f5f5f5;
+        --card-background-color: #ffffff;
+      }
+    </style>
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration

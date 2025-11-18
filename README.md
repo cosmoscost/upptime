@@ -1,3 +1,101 @@
+# CosmosCost Uptime & Status Monitoring
+
+This repository contains the Upptime configuration for monitoring **CosmosCost** - a multi-tenant SaaS platform for aggregating cloud costs across AWS, GCP, and Azure.
+
+**Status Page:** [status.cosmoscost.com](https://status.cosmoscost.com)
+
+## Monitored Endpoints
+
+### Core Application
+- **Homepage**: https://cosmoscost.com
+- **Public Health Check**: https://cosmoscost.com/api/health/public (database connectivity)
+- **Dashboard**: https://cosmoscost.com/dashboard
+- **Authentication**: https://cosmoscost.com/auth/signin
+- **Admin Console**: https://cosmoscost.com/admin
+
+### Marketing & Documentation
+- **Documentation**: https://cosmoscost.com/docs
+- **Pricing Page**: https://cosmoscost.com/pricing
+
+### External Dependencies
+- **Supabase Database**: PostgreSQL backend service health
+- **Stripe API**: Payment processing service status
+
+## Configuration Details
+
+- **Check Interval**: Every 5 minutes via GitHub Actions
+- **Response Time Tracking**: Every 30 minutes
+- **Response Time Thresholds**:
+  - Web pages (Homepage, Dashboard, etc.): 3,000ms
+  - API endpoints: 2,000ms
+  - Documentation/Pricing: 1,500ms
+- **Incident Reporting**: GitHub Issues automatically created for outages
+- **Status Page**: Real-time status dashboard at status.cosmoscost.com
+
+## Public Health Endpoint
+
+A public health check endpoint has been created at `/api/health/public` that Upptime can monitor without authentication. This endpoint performs:
+
+- Database connectivity check (Supabase)
+- Response time measurement
+- System health status reporting
+
+Response format:
+```json
+{
+  "status": "healthy|unhealthy",
+  "timestamp": "2025-11-18T10:30:00Z",
+  "checks": {
+    "database": {
+      "status": "up|down",
+      "responseTime": 145
+    }
+  }
+}
+```
+
+HTTP Status Codes:
+- `200 OK` - System is healthy
+- `503 Service Unavailable` - System is unhealthy
+
+## Setup Instructions
+
+### Post-Deployment Tasks
+
+1. **DNS Configuration**
+   - Create a CNAME record for `status.cosmoscost.com`
+   - Point to `jandro.github.io` (GitHub Pages)
+
+2. **GitHub Pages Setup**
+   - Enable GitHub Pages in repository settings
+   - Source: `gh-pages` branch
+   - Custom domain: `status.cosmoscost.com`
+
+3. **GitHub Secrets** (optional for authenticated endpoints)
+   - `SECRET_CUSTOMER_API_URL`: Customer API test endpoint
+   - `SECRET_API_TOKEN`: Valid API authentication token
+
+4. **First Workflow Trigger**
+   - After configuration is complete, manually trigger GitHub Actions workflows to start monitoring
+
+## Incident Response
+
+When an endpoint goes down:
+
+1. Upptime detects the issue within 5 minutes
+2. A GitHub Issue is automatically created
+3. The status page shows the incident in real-time
+4. Team members can add incident updates as comments
+5. Issue is automatically closed when endpoint recovers
+
+## For More Information
+
+- [Upptime Documentation](https://upptime.js.org)
+- [CosmosCost GitHub Repository](https://github.com/jandro-dev/cosmoscost)
+- Status Page Updates: Check [status.cosmoscost.com](https://status.cosmoscost.com)
+
+---
+
 # [![Upptime](https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/logo.svg)](https://upptime.js.org)
 
 <!--start: description-->
