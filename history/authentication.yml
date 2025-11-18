@@ -1,7 +1,7 @@
-url: https://cosmoscost.com/auth/signin
-status: down
-code: 404
-responseTime: 313
-lastUpdated: 2025-11-18T11:31:37.739Z
+url: https://cosmoscost.com/auth/login
+status: up
+code: 200
+responseTime: 204
+lastUpdated: 2025-11-18T11:40:46.058Z
 startTime: 2025-11-18T04:34:33.374Z
 generator: Upptime <https://github.com/upptime/upptime>
