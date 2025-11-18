@@ -75,7 +75,7 @@ sites:
 
 status-website:
   cname: status.cosmoscost.com
-  logoUrl: https://cosmoscost.com/logo.svg
+  logoUrl: https://cosmoscost.com/logo/cosmoscost-256.svg
   name: CosmosCost Status
   theme: dark
   introTitle: "**CosmosCost** Cloud Cost Management Platform"
