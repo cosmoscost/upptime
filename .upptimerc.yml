@@ -34,7 +34,7 @@ sites:
     maxResponseTime: 2000
 
   - name: Authentication
-    url: https://cosmoscost.com/auth/signin
+    url: https://cosmoscost.com/auth/login
     expectedStatusCodes:
       - 200
     maxResponseTime: 2000
