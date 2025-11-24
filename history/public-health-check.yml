@@ -1,7 +1,7 @@
 url: https://cosmoscost.com/api/health/public
-status: up
-code: 200
-responseTime: 260
-lastUpdated: 2025-11-24T08:55:06.123Z
+status: degraded
+code: 503
+responseTime: 2275
+lastUpdated: 2025-11-24T09:45:46.090Z
 startTime: 2025-11-18T04:34:30.483Z
 generator: Upptime <https://github.com/upptime/upptime>
