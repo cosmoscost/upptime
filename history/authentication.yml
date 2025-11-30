@@ -1,7 +1,7 @@
 url: https://cosmoscost.com/auth/login
-status: down
-code: 0
-responseTime: 0
-lastUpdated: 2025-11-30T23:25:37.252Z
+status: up
+code: 200
+responseTime: 647
+lastUpdated: 2025-11-30T23:37:34.312Z
 startTime: 2025-11-18T04:34:33.374Z
 generator: Upptime <https://github.com/upptime/upptime>
